@@ -90,7 +90,8 @@ export default function Portfolio() {
         }}>
           {projects.map((project) => (
             <div 
-              key={project.id} 
+              key={project.id}
+              className="group"
               style={{
                 position: "relative",
                 borderRadius: "1.5rem",
@@ -99,7 +100,6 @@ export default function Portfolio() {
                 height: "450px",
                 border: "1px solid rgba(255, 255, 255, 0.1)",
                 transition: "all 400ms cubic-bezier(0.4, 0, 0.2, 1)",
-                group: "true",
               }}
               onMouseEnter={(e) => {
                 const el = e.currentTarget as HTMLDivElement;
