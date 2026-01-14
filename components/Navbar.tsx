@@ -1,7 +1,6 @@
 "use client";
 import Link from "next/link";
 import { useState, useEffect } from "react";
-import { cn } from "@/lib/utils";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -40,7 +39,7 @@ export default function Navbar() {
         maxWidth: "90rem",
         margin: "0 auto",
         padding: "0 1.5rem",
-        display: "flex",
+        display: "flex",  
         justifyContent: "space-between",
         alignItems: "center",
         height: "60px", 
@@ -62,14 +61,6 @@ export default function Navbar() {
             alignItems: "center",
             gap: "0.5rem",
           }}
-          onMouseEnter={(e) => {
-            const el = e.currentTarget as HTMLAnchorElement;
-            el.style.transform = "scale(1.05)";
-          }}
-          onMouseLeave={(e) => {
-            const el = e.currentTarget as HTMLAnchorElement;
-            el.style.transform = "scale(1)";
-          }}
         >
           <span style={{
             display: "inline-flex",
@@ -89,12 +80,15 @@ export default function Navbar() {
           NEXUS
         </Link>
 
-        {/* Desktop Navigation */}
-        <div style={{
-          display: "flex",
-          gap: "0.5rem",
-          alignItems: "center",
-        }} className="hidden md:flex">
+        {/* Desktop Navigation - FIXED */}
+        {/* Removed display: 'flex' from style, relying on className 'md:flex' */}
+        <div 
+          style={{
+            gap: "0.5rem",
+            alignItems: "center",
+          }} 
+          className="hidden md:flex"
+        >
           {navLinks.map((link, idx) => (
             <Link
               key={idx}
@@ -113,22 +107,9 @@ export default function Navbar() {
                 gap: "0.5rem",
                 background: activeLink === link.href ? "rgba(99, 102, 241, 0.1)" : "transparent",
               }}
-              onMouseEnter={(e) => {
-                const el = e.currentTarget as HTMLAnchorElement;
-                el.style.color = "#ffffff";
-                el.style.background = "rgba(99, 102, 241, 0.15)";
-                el.style.transform = "translateX(5px)";
-              }}
-              onMouseLeave={(e) => {
-                const el = e.currentTarget as HTMLAnchorElement;
-                el.style.color = activeLink === link.href ? "#6366f1" : "#d1d5db";
-                el.style.background = activeLink === link.href ? "rgba(99, 102, 241, 0.1)" : "transparent";
-                el.style.transform = "translateX(0)";
-              }}
               onClick={() => {
                 setActiveLink(link.href);
                 if (mobileOpen) setMobileOpen(false);
-                document.getElementById(link.href.substring(1))?.scrollIntoView({ behavior: "smooth" });
               }}
             >
               <span>{link.icon}</span>
@@ -143,19 +124,22 @@ export default function Navbar() {
           gap: "1rem",
           alignItems: "center",
         }}>
-          {/* Stats Badge */}
-          <div style={{
-            display: "flex",
-            alignItems: "center",
-            gap: "0.5rem",
-            padding: "0.5rem 1rem",
-            background: "rgba(99, 102, 241, 0.1)",
-            border: "1px solid rgba(99, 102, 241, 0.3)",
-            borderRadius: "50px",
-            fontSize: "0.85rem",
-            color: "#6366f1",
-            fontWeight: "600",
-          }} className="hidden md:flex">
+          {/* Stats Badge - FIXED */}
+          {/* Removed display: 'flex' from style, relying on className 'md:flex' */}
+          <div 
+            style={{
+              alignItems: "center",
+              gap: "0.5rem",
+              padding: "0.5rem 1rem",
+              background: "rgba(99, 102, 241, 0.1)",
+              border: "1px solid rgba(99, 102, 241, 0.3)",
+              borderRadius: "50px",
+              fontSize: "0.85rem",
+              color: "#6366f1",
+              fontWeight: "600",
+            }} 
+            className="hidden md:flex"
+          >
             <span style={{
               width: "0.5rem",
               height: "0.5rem",
@@ -167,11 +151,11 @@ export default function Navbar() {
           </div>
 
           {/* Primary CTA Button */}
+          {/* This button stays visible on both mobile and desktop, which is standard */}
           <button 
             onClick={() => {
               setActiveLink("#contact");
               setMobileOpen(false);
-              document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
             }}
             style={{
               padding: "0.875rem 1.75rem",
@@ -191,26 +175,15 @@ export default function Navbar() {
               position: "relative",
               overflow: "hidden",
             }}
-            onMouseEnter={(e) => {
-              const el = e.currentTarget as HTMLButtonElement;
-              el.style.boxShadow = "0 15px 40px rgba(99, 102, 241, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.3)";
-              el.style.transform = "translateY(-3px)";
-            }}
-            onMouseLeave={(e) => {
-              const el = e.currentTarget as HTMLButtonElement;
-              el.style.boxShadow = "0 8px 20px rgba(99, 102, 241, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.2)";
-              el.style.transform = "translateY(0)";
-            }}
           >
             <span>🚀</span>
-            Get Started
+            <span className="hidden sm:inline">Get Started</span>
           </button>
 
           {/* Mobile Menu Button - FIXED */}
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
             style={{
-              // Removed "display" and "@media" keys
               background: "rgba(99, 102, 241, 0.2)",
               border: "1px solid rgba(99, 102, 241, 0.3)",
               borderRadius: "0.5rem",
@@ -218,17 +191,10 @@ export default function Navbar() {
               cursor: "pointer",
               color: "#6366f1",
               transition: "all 300ms",
+              // Note: NO display property here
             }}
-            // Tailwind class "md:hidden" handles the hiding
-            className="md:hidden flex flex-col gap-1"
-            onMouseEnter={(e) => {
-              (e.currentTarget as HTMLButtonElement).style.background = "rgba(99, 102, 241, 0.3)";
-              (e.currentTarget as HTMLButtonElement).style.borderColor = "rgba(99, 102, 241, 0.5)";
-            }}
-            onMouseLeave={(e) => {
-              (e.currentTarget as HTMLButtonElement).style.background = "rgba(99, 102, 241, 0.2)";
-              (e.currentTarget as HTMLButtonElement).style.borderColor = "rgba(99, 102, 241, 0.3)";
-            }}
+            // Tailwind controls visibility: flex on mobile, hidden on md screens
+            className="flex flex-col gap-1 md:hidden"
           >
             <span style={{
               width: "20px",
@@ -258,20 +224,19 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* Mobile Menu - FIXED */}
+      {/* Mobile Menu Dropdown */}
       {mobileOpen && (
-        <div style={{
-          // Removed "display" and "@media" keys
-          // Removed "flexDirection" (moved to className)
-          gap: "0.5rem",
-          padding: "1rem 1.5rem",
-          background: "rgba(17, 24, 39, 0.95)",
-          borderTop: "1px solid rgba(99, 102, 241, 0.2)",
-          backdropFilter: "blur(10px)",
-          animation: "slideInDown 300ms ease-out",
-        }} className="md:hidden flex flex-col"> 
-          {/* Added "flex flex-col" to className above */}
-          
+        <div 
+          style={{
+            gap: "0.5rem",
+            padding: "1rem 1.5rem",
+            background: "rgba(17, 24, 39, 0.95)",
+            borderTop: "1px solid rgba(99, 102, 241, 0.2)",
+            backdropFilter: "blur(10px)",
+            animation: "slideInDown 300ms ease-out",
+          }} 
+          className="flex flex-col md:hidden"
+        > 
           {navLinks.map((link, idx) => (
             <Link
               key={idx}
@@ -288,18 +253,6 @@ export default function Navbar() {
                 alignItems: "center",
                 gap: "0.75rem",
                 background: "rgba(99, 102, 241, 0.05)",
-              }}
-              onMouseEnter={(e) => {
-                const el = e.currentTarget as HTMLAnchorElement;
-                el.style.color = "#ffffff";
-                el.style.background = "rgba(99, 102, 241, 0.2)";
-                el.style.transform = "translateX(10px)";
-              }}
-              onMouseLeave={(e) => {
-                const el = e.currentTarget as HTMLAnchorElement;
-                el.style.color = "#d1d5db";
-                el.style.background = "rgba(99, 102, 241, 0.05)";
-                el.style.transform = "translateX(0)";
               }}
               onClick={() => {
                 setMobileOpen(false);

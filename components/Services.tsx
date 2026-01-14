@@ -5,6 +5,7 @@ import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Monitor, PenTool, BarChart, Server } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -14,24 +15,28 @@ const services = [
     desc: "Next.js & React scalable architectures.", 
     icon: <Monitor size={40} />,
     image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop&q=80"
+    ,link: "/services/web-development"
   },
   { 
     title: "AI/ML Engineering", 
     desc: "AI based systems and chatbots.", 
     icon: <PenTool size={40} />,
     image: "https://images.unsplash.com/photo-1497215728101-856f4ea42174?w=600&h=400&fit=crop&q=80"
+    ,link: "/services/ai-ml-engineering"
   },
   { 
     title: "SEO & Performance", 
     desc: "Ranking high and loading fast.", 
     icon: <BarChart size={40} />,
     image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop&q=80"
+    ,link: "/services/seo-performance"
   },
   { 
     title: "Backend Systems", 
     desc: "Robust APIs and database solutions.", 
     icon: <Server size={40} />,
     image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=600&h=400&fit=crop&q=80"
+    ,link: "/services/backend-systems"
   },
 ];
 
@@ -203,8 +208,21 @@ export default function Services() {
                 borderTop: "1px solid rgba(255, 255, 255, 0.1)",
                 color: "#9ca3af",
                 fontSize: "0.875rem",
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "center",
               }}>
-                Learn more →
+                <span>{service.title}</span>
+                <Link href={service.link || '/services'} style={{
+                  background: "rgba(99, 102, 241, 0.12)",
+                  color: "#dbeafe",
+                  padding: "0.5rem 0.75rem",
+                  borderRadius: "0.5rem",
+                  textDecoration: "none",
+                  fontWeight: 600,
+                }}>
+                  Learn more →
+                </Link>
               </div>
             </div>
           </div>

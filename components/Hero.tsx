@@ -3,6 +3,7 @@ import { useRef } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import Link from "next/link";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -143,43 +144,59 @@ export default function Hero() {
         
         <div style={{
           display: "flex",
-          flexDirection: "column",
+          flexDirection: "row",
           gap: "1rem",
           justifyContent: "center",
           alignItems: "center",
           flexWrap: "wrap",
         }}>
-          <button 
+          <Link
+            href="#work"
+            aria-label="View Projects"
             style={{
-              padding: "1rem 2rem",
-              borderRadius: "0.5rem",
-              fontWeight: "600",
-              transition: "all 300ms",
-              background: "linear-gradient(to right, #6366f1, #6366f1)",
-              color: "#ffffff",
-              boxShadow: "0 0 20px rgba(99, 102, 241, 0.5)",
-              border: "none",
-              cursor: "pointer",
+              display: "inline-flex",
+              alignItems: "center",
+              justifyContent: "center",
+              gap: "0.75rem",
+              padding: "0.9rem 2.25rem",
+              borderRadius: "0.75rem",
+              fontWeight: 700,
+              transition: "all 200ms",
+              background: "linear-gradient(90deg,#6366f1 0%,#7c3aed 100%)",
+              color: "#fff",
+              boxShadow: "0 10px 30px rgba(99,102,241,0.25)",
+              border: "1px solid rgba(124,58,237,0.15)",
+              textDecoration: "none",
               fontSize: "1rem",
             }}
           >
-            View Projects
-          </button>
-          <button 
+            <span>View Projects</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden>
+              <path d="M12 5v14" stroke="rgba(255,255,255,0.9)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+              <path d="M19 12l-7 7-7-7" stroke="rgba(255,255,255,0.9)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+          </Link>
+
+          <Link
+            href="#services"
+            aria-label="Our Services"
             style={{
-              padding: "1rem 2rem",
-              borderRadius: "0.5rem",
-              fontWeight: "600",
-              transition: "all 300ms",
-              border: "2px solid rgba(255, 255, 255, 0.3)",
-              color: "#ffffff",
-              backgroundColor: "transparent",
-              cursor: "pointer",
+              display: "inline-flex",
+              alignItems: "center",
+              justifyContent: "center",
+              padding: "0.9rem 2rem",
+              borderRadius: "0.75rem",
+              fontWeight: 700,
+              transition: "all 200ms",
+              border: "1px solid rgba(255,255,255,0.12)",
+              color: "#fff",
+              background: "transparent",
+              textDecoration: "none",
               fontSize: "1rem",
             }}
           >
-            Our Process
-          </button>
+            Our Services
+          </Link>
         </div>
 
         {/* Scroll indicator */}

@@ -122,3 +122,17 @@ body {
     box-shadow: 0 0 40px rgba(99, 102, 241, 0.8);
   }
 }
+
+/* Mobile / reduced-motion improvements to help scrolling performance */
+html, body {
+  -webkit-overflow-scrolling: touch;
+  touch-action: pan-y;
+}
+
+@media (max-width: 768px), (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+    filter: none !important;
+  }
+}

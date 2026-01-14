@@ -110,7 +110,7 @@ export default function Footer() {
                 {[
                   // These now point to IDs on the page (e.g. id="services")
                   { name: "Services", href: "#services" },
-                  { name: "Portfolio", href: "#portfolio" },
+                  { name: "Portfolio", href: "#work" },
                   { name: "About Us", href: "#about" },
                   { name: "Contact", href: "#contact" },
                 ].map((link) => (
@@ -156,17 +156,28 @@ export default function Footer() {
                 flexDirection: "column",
                 gap: "0.75rem",
               }}>
-                {["Web Development", "UI/UX Design", "SEO & Marketing", "Backend Systems"].map((service) => (
-                  <span
+                {[
+                  "Web Development",
+                  "UI/UX Design",
+                  "SEO & Marketing",
+                  "Backend Systems",
+                ].map((service) => (
+                  <Link
                     key={service}
+                    href="#services"
+                    onClick={(e) => scrollToSection(e, '#services')}
                     style={{
                       color: "#9ca3af",
                       fontSize: "0.95rem",
-                      cursor: "default"
+                      textDecoration: "none",
+                      transition: "color 200ms",
+                      display: "inline-block",
                     }}
+                    onMouseEnter={(e) => { e.currentTarget.style.color = '#6366f1'; }}
+                    onMouseLeave={(e) => { e.currentTarget.style.color = '#9ca3af'; }}
                   >
                     {service}
-                  </span>
+                  </Link>
                 ))}
               </div>
             </div>
