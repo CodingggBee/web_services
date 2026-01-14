@@ -16,8 +16,8 @@ const services = [
     image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop&q=80"
   },
   { 
-    title: "AI/ML", 
-    desc: "User-centric interfaces that convert.", 
+    title: "AI/ML Engineering", 
+    desc: "AI based systems and chatbots.", 
     icon: <PenTool size={40} />,
     image: "https://images.unsplash.com/photo-1497215728101-856f4ea42174?w=600&h=400&fit=crop&q=80"
   },
