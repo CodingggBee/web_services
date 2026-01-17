@@ -207,9 +207,6 @@ export default function Hero() {
           transform: "translateX(-50%)",
           animation: "bounce 2s infinite",
         }}>
-          <svg style={{width: "1.5rem", height: "1.5rem", color: "#6366f1"}} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-          </svg>
         </div>
       </div>
     </section>
