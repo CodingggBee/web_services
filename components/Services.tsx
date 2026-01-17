@@ -1,5 +1,5 @@
 "use client";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -67,6 +67,10 @@ export default function Services() {
     );
   }, { scope: triggerRef });
 
+  const [imgSrcs, setImgSrcs] = useState<Record<number, string>>(() =>
+    services.reduce((acc, s, i) => ({ ...acc, [i]: s.image }), {})
+  );
+
   return (
     <section 
       id="services" 
@@ -127,7 +131,7 @@ export default function Services() {
         width: "clamp(300vw, 400vw, 400vw)",
       }}>
         {services.map((service, index) => (
-          <div 
+            <div 
             key={index} 
             style={{
               width: "clamp(60vw, 85vw, 600px)",
@@ -157,13 +161,14 @@ export default function Services() {
               zIndex: "1",
             }}>
               <Image
-                src={service.image}
+                src={imgSrcs[index]}
                 alt={service.title}
                 fill
                 style={{
                   objectFit: "cover",
                 }}
                 quality={85}
+                onError={() => setImgSrcs((s) => ({ ...s, [index]: '/fallback-service.svg' }))}
               />
             </div>
 

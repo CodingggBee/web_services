@@ -198,8 +198,8 @@ export default function Footer() {
                 flexWrap: "wrap",
               }}>
                 {[
-                  { name: "LinkedIn", icon: "💼", url: "https://www.linkedin.com/in/zain-ul-abdin-arshad-98b9352b9/" },
-                  { name: "GitHub", icon: "💻", url: "https://github.com/Zain-ul-Abdin-Arshad?tab=repositories" },
+                  { name: "LinkedIn", icon: "💼", url: "https://www.linkedin.com" },
+                  { name: "GitHub", icon: "💻", url: "https://github.com" },
                   { name: "Twitter", icon: "🐦", url: "https://twitter.com" },
                   { name: "Email", icon: "✉️", url: "mailto:contact@nexus.com" },
                 ].map((social) => (
