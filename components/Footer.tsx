@@ -109,9 +109,9 @@ export default function Footer() {
               }}>
                 {[
                   // These now point to IDs on the page (e.g. id="services")
-                  { name: "Services", href: "#services" },
+                  // { name: "Services", href: "#Services" },
                   { name: "Portfolio", href: "#work" },
-                  { name: "About Us", href: "#about" },
+                  { name: "About Us", href: "/about" },
                   { name: "Contact", href: "#contact" },
                 ].map((link) => (
                   <Link
@@ -158,7 +158,7 @@ export default function Footer() {
               }}>
                 {[
                   "Web Development",
-                  "UI/UX Design",
+                  "AI/ ML",
                   "SEO & Marketing",
                   "Backend Systems",
                 ].map((service) => (
@@ -198,10 +198,10 @@ export default function Footer() {
                 flexWrap: "wrap",
               }}>
                 {[
-                  { name: "LinkedIn", icon: "💼", url: "https://www.linkedin.com" },
-                  { name: "GitHub", icon: "💻", url: "https://github.com" },
+                  { name: "LinkedIn", icon: "💼", url: "https://www.linkedin.com/in/zain-ul-abdin-arshad-98b9352b9/" },
+                  { name: "GitHub", icon: "💻", url: "https://github.com/Zain-ul-Abdin-Arshad?tab=repositories" },
                   { name: "Twitter", icon: "🐦", url: "https://twitter.com" },
-                  { name: "Email", icon: "✉️", url: "mailto:contact@nexus.com" },
+                  { name: "Email", icon: "✉️", url: "mailto:zain.developer.official@gmail.com" },
                 ].map((social) => (
                   <a
                     key={social.name}

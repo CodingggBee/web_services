@@ -12,7 +12,7 @@ const projects = [
     image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop&q=80",
     gradient: "linear-gradient(135deg, rgba(59, 130, 246, 0.4) 0%, rgba(37, 99, 235, 0.4) 100%)",
     stats: "10K+ Users, $2M ARR",
-    link: "/projects/fintech-dashboard",
+    // link: "/projects/fintech-dashboard",
   },
   { 
     id: 2, 
@@ -22,7 +22,7 @@ const projects = [
     image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&h=600&fit=crop&q=80",
     gradient: "linear-gradient(135deg, rgba(168, 85, 247, 0.4) 0%, rgba(147, 51, 234, 0.4) 100%)",
     stats: "$5M+ GMV, 50K+ Orders",
-    link: "/projects/e-commerce-platform",
+    // link: "/projects/e-commerce-platform",
   },
   { 
     id: 3, 
@@ -32,7 +32,7 @@ const projects = [
     image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=800&h=600&fit=crop&q=80",
     gradient: "linear-gradient(135deg, rgba(20, 184, 166, 0.4) 0%, rgba(13, 148, 136, 0.4) 100%)",
     stats: "500K+ Downloads, 4.8★ Rating",
-    link: "/projects/health-wellness-app",
+    // link: "/projects/health-wellness-app",
   },
 ];
 
@@ -216,18 +216,6 @@ export default function Portfolio() {
                     }}>
                       {project.stats}
                     </span>
-                    <Link href={project.link || '#'} style={{
-                      background: "rgba(99, 102, 241, 0.12)",
-                      color: "#dbeafe",
-                      padding: "0.5rem 0.75rem",
-                      borderRadius: "0.5rem",
-                      fontWeight: 600,
-                      textDecoration: "none",
-                      transition: "all 200ms",
-                      border: "1px solid rgba(99,102,241,0.15)",
-                    }}>
-                      View Project →
-                    </Link>
                   </div>
                 </div>
               </div>

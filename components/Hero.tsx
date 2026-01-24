@@ -169,8 +169,7 @@ export default function Hero() {
               textDecoration: "none",
               fontSize: "1rem",
             }}
-          >
-            <span>View Projects</span>
+          ><span>View Projects</span>
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden>
               <path d="M12 5v14" stroke="rgba(255,255,255,0.9)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
               <path d="M19 12l-7 7-7-7" stroke="rgba(255,255,255,0.9)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
